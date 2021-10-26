@@ -5,131 +5,56 @@
     <meta name="viewport" content="width=device-width">
     <title>repl.it</title>
   </head>
-  <body form="frm" onload="gerarlinks()" onload="gerarsumario()">
-    <ol id="sumario"></ol>
-    <h1>Hello world</h1>
-    <h2 id="pt" >Olá mundo </h2> <br><br>
-    <h2 id="it" >Ciao mondo </h2> <br><br>
-    <h2 id="es" >Hola mundo </h2> <br><br>
-    <h2 id="al" >Hallo Welt </h2> <br><br>
-    <h2 id="fr" >Bonjour le monde </h2> <br><br>
-    <h2 id="po" >Witaj świecie </h2> <br><br>
-    <h2 id="jp" >こんにちは世界 </h2> <br><br>
-    <script> 
+  <body onload="listaordenada()">
+    <ol></ol>
+    <h1> Hello world</h1>
+	<br><br>
+    <h2>Olá mundo</h2>
+	<br><br>
+    <h2>Ciao mondo</h2>
+	<br><br>
+    <h2>Hola mundo</h2>
+	<br><br>
+    <h2>Hallo Welt</h2>
+	<br><br>
+    <h2>Bonjour le monde</h2>
+	<br><br>
+    <h2>Witaj świecie</h2>
+	<br><br>
+    <h2>こんにちは世界</h2>
+	<br><br>
+	<h2>Hej Verden</h2>
+	<br><br>
+	<h2>헬로월드</h2>
+	<br><br>
+	<h2>Hei Verden</h2>
+	<br><br>
+    <script>
+		function listaordenada()	{
+			escrever = document.querySelector('ol')
+			escrever.setAttribute('id', 'inicio')
+			
+			const encontrar = document.querySelectorAll('h2');
+			const elementos = new Array();
+			encontrar.forEach(resultado => { elementos.push(resultado.textContent)
+			const inicio = document.createElement('a')
+			inicio.setAttribute('name', resultado.textContent);
+			inicio.setAttribute('href', '#inicio');
+			inicio.textContent = "início"
+			resultado.append(inicio);
+			} );
 
-	function gerarsumario() {
-	escrever = document.querySelector('ol')
-	unidade = document.createElement('li');
-	escrever.append(unidade);
-	portugues = document.createElement('a');
-	portugues.setAttribute('href', '#pt')
-	portugues.textContent = "Português";
-	unidade.append(portugues);
-	escrever.append(document.createElement('br'));
-	
-	unidade = document.createElement('li');
-	escrever.append(unidade);
-	italiano = document.createElement('a');
-	italiano.setAttribute('href', '#it')
-	italiano.textContent = "Italiano";
-	unidade.append(italiano);
-	escrever.append(document.createElement('br'));
-	
-	unidade = document.createElement('li');
-	escrever.append(unidade);
-	espanhol = document.createElement('a');
-	espanhol.setAttribute('href', '#es')
-	espanhol.textContent = "Espanhol";
-	unidade.append(espanhol);
-	escrever.append(document.createElement('br'));
-	
-	unidade = document.createElement('li');
-	escrever.append(unidade);
-	alemao = document.createElement('a');
-	alemao.setAttribute('href', '#al')
-	alemao.textContent = "Alemao";
-	unidade.append(alemao);
-	escrever.append(document.createElement('br'));
-	
-	unidade = document.createElement('li');
-	escrever.append(unidade);
-	frances = document.createElement('a');
-	frances.setAttribute('href', '#fr')
-	frances.textContent = "Frances";
-	unidade.append(frances);
-	escrever.append(document.createElement('br'));
-	
-	unidade = document.createElement('li');
-	escrever.append(unidade);
-	polones = document.createElement('a');
-	polones.setAttribute('href', '#po')
-	polones.textContent = "Polonês";
-	unidade.append(polones);
-	escrever.append(document.createElement('br'));
-	
-	unidade = document.createElement('li');
-	escrever.append(unidade);
-	japones = document.createElement('a');
-	japones.setAttribute('href', '#jp')
-	japones.textContent = "Japonês";
-	unidade.append(japones);
-	escrever.append(document.createElement('br'));
-
-}	
-
-	function gerarlinks() {
-	
-	portugues = document.getElementById("pt");
-	criar = document.createElement('a')
-	criar.setAttribute('href', '#sumario')
-	criar.textContent = "clique aqui para voltar ao sumário"
-	portugues.append(document.createElement('br'));
-	portugues.append(criar);
-	
-	italiano = document.getElementById("it");
-	criar = document.createElement('a')
-	criar.setAttribute('href', '#sumario')
-	criar.textContent = "clique aqui para voltar ao sumário"
-	italiano.append(document.createElement('br'));
-	italiano.append(criar);
-	
-	espanhol = document.getElementById("es");
-	criar = document.createElement('a')
-	criar.setAttribute('href', '#sumario')
-	criar.textContent = "clique aqui para voltar ao sumário"
-	espanhol.append(document.createElement('br'));
-	espanhol.append(criar);
-	
-	alemao = document.getElementById("al");
-	criar = document.createElement('a')
-	criar.setAttribute('href', '#sumario')
-	criar.textContent = "clique aqui para voltar ao sumário"
-	alemao.append(document.createElement('br'));
-	alemao.append(criar);
-	
-	frances = document.getElementById("fr");
-	criar = document.createElement('a')
-	criar.setAttribute('href', '#sumario')
-	criar.textContent = "clique aqui para voltar ao sumário"
-	frances.append(document.createElement('br'));
-	frances.append(criar);
-	
-	polones = document.getElementById("po");
-	criar = document.createElement('a')
-	criar.setAttribute('href', '#sumario')
-	criar.textContent = "clique aqui para voltar ao sumário"
-	polones.append(document.createElement('br'));
-	polones.append(criar);
-	
-	japones = document.getElementById("jp");
-	criar = document.createElement('a')
-	criar.setAttribute('href', '#sumario')
-	criar.textContent = "clique aqui para voltar ao sumário"
-	japones.append(document.createElement('br'));
-	japones.append(criar);
-	
-	gerarsumario();
+			
+			elementos.forEach(topico => {
+				lista = document.createElement('li');
+				escrever.append(lista);
+				const ancora = document.createElement('a')
+				ancora.setAttribute('href', `#${topico}`)
+				ancora.textContent = topico
+				lista.append(ancora)
+			})
+		
 }
-</script> 
+	</script>
   </body>
 </html>
