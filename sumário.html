@@ -29,32 +29,6 @@
 	<br><br>
 	<h2>Hei Verden</h2>
 	<br><br>
-    <script>
-		function listaordenada()	{
-			escrever = document.querySelector('ol')
-			escrever.setAttribute('id', 'inicio')
-			
-			const encontrar = document.querySelectorAll('h2');
-			const elementos = new Array();
-			encontrar.forEach(resultado => { elementos.push(resultado.textContent)
-			const inicio = document.createElement('a')
-			inicio.setAttribute('name', resultado.textContent);
-			inicio.setAttribute('href', '#inicio');
-			inicio.textContent = "início"
-			resultado.append(inicio);
-			} );
-
-			
-			elementos.forEach(topico => {
-				lista = document.createElement('li');
-				escrever.append(lista);
-				const ancora = document.createElement('a')
-				ancora.setAttribute('href', `#${topico}`)
-				ancora.textContent = topico
-				lista.append(ancora)
-			})
-		
-}
-	</script>
+    <script src="https://raw.githubusercontent.com/GabrielDpb/Prog-web-2/main/script.js"> </script>
   </body>
 </html>
