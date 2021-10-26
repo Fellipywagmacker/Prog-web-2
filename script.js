@@ -8,7 +8,7 @@ function listaordenada()	{
 			const inicio = document.createElement('a')
 			inicio.setAttribute('name', resultado.textContent);
 			inicio.setAttribute('href', '#inicio');
-			inicio.textContent = "início"
+			inicio.textContent = " início"
 			resultado.append(inicio);
 			} );
 
