@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>tarefa titulo</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body onload="criabotao()">
+	<h1>Texto teste h1</h1>
+    <h1>Texto teste h1</h1>
+    <h1>Texto teste h1</h1>
+    <h1>Texto teste h1</h1>
+	<h2>Texto teste h2</h2>
+    <h2>Texto teste h2</h2>
+    <h2>Texto teste h2</h2>
+    <h2>Texto teste h2</h2>
+	<h3>Texto teste h3</h3>
+    <h3>Texto teste h3</h3>
+    <h3>Texto teste h3</h3>
+    <h3>Texto teste h3</h3>
+	<h4>Texto teste h4</h4>
+    <h4>Texto teste h4</h4>
+    <h4>Texto teste h4</h4>
+    <h4>Texto teste h4</h4>
+	<h5>Texto teste h5</h5>
+    <h5>Texto teste h5</h5>
+    <h5>Texto teste h5</h5>
+    <h5>Texto teste h5</h5>
+	<h6>Texto teste h6</h6>
+    <h6>Texto teste h6</h6>
+    <h6>Texto teste h6</h6>
+    <h6>Texto teste h6</h6><br>
+	<p>botões de teste</p>
+	<input type="button" value="remover h1" onclick="remove_h1()">
+	<input type="button" value="remover h2" onclick="remove_h2()">
+	<input type="button" value="remover h3" onclick="remove_h3()">
+	<input type="button" value="remover h4" onclick="remove_h4()">
+	<input type="button" value="remover h5" onclick="remove_h5()">
+	<input type="button" value="remover h6" onclick="remove_h6()"> <br>
+	<input type="button" value="adiciona h1" onclick="adiciona_h1()">
+	<input type="button" value="adiciona h2" onclick="adiciona_h2()">
+	<input type="button" value="adiciona h3" onclick="adiciona_h3()">
+	<input type="button" value="adiciona h4" onclick="adiciona_h4()">
+	<input type="button" value="adiciona h5" onclick="adiciona_h5()">
+	<input type="button" value="adiciona h6" onclick="adiciona_h6()">
+	<script> 
+	function encontrar_h() {
+		h = 1
+		e = []
+	while (h <= 6) {
+		if (document.querySelectorAll(`h${h}`).length > 0){
+		document.querySelectorAll(`h${h}`).forEach(item => e.push(item));
+		return e;
+	}	
+		else {
+		h += 1;
+	}}}
+	x = 32
+	
+	function criabotao() {
+		encontrar = encontrar_h()
+		if (encontrar.length > 0) {
+		primeiro = encontrar[0];
+		primeiro.setAttribute('style', `font-size:${x}px`);
+		botaoaumentar = document.createElement('input');
+		botaoaumentar.setAttribute('type', 'button');
+		botaoaumentar.setAttribute('onclick', 'aumenta()');
+		botaoaumentar.setAttribute('value', '+')
+		if (document.querySelectorAll('input').length <= 12){
+		primeiro.append(botaoaumentar);
+		}
+		botaodiminuir = document.createElement('input');
+		botaodiminuir.setAttribute('type', 'button');
+		botaodiminuir.setAttribute('onclick', 'diminui()');
+		botaodiminuir.setAttribute('value', '-')
+		if (document.querySelectorAll('input').length <= 13){
+		primeiro.append(botaodiminuir);
+	}
+	}}
+	function aumenta() {
+	   if ( x < 41){
+	   x += 3;
+	   primeiro.setAttribute('style', `font-size:${x}px`);  
+	 }}
+
+	function diminui() {
+	   if (x > 23) {
+	   x -= 3;
+	   primeiro.setAttribute('style', `font-size:${x}px`)
+	 }}
+	 
+	
+	function remove_h1(){
+		i = 0
+		if (document.querySelectorAll('h1').length > 0) {
+		while (i < document.querySelectorAll('h1').length){
+		document.querySelectorAll('h1')[0].remove()
+		}
+		criabotao()
+	}}
+	
+	function remove_h2(){
+		i = 0
+		if (document.querySelectorAll('h2').length > 0) {
+		while (i < document.querySelectorAll('h2').length){
+		document.querySelectorAll('h2')[0].remove()
+		}
+		criabotao()
+	}}
+	
+	function remove_h3(){
+		i = 0
+		if (document.querySelectorAll('h3').length > 0) {
+		while (i < document.querySelectorAll('h3').length){
+		document.querySelectorAll('h3')[0].remove()
+		}
+		criabotao()
+	}}
+	
+	function remove_h4(){
+		i = 0
+		if (document.querySelectorAll('h4').length > 0) {
+		while (i < document.querySelectorAll('h4').length){
+		document.querySelectorAll('h4')[0].remove()
+		}
+		criabotao()
+	}}
+	
+	function remove_h5(){
+		i = 0
+		if (document.querySelectorAll('h5').length > 0) {
+		while (i < document.querySelectorAll('h5').length){
+		document.querySelectorAll('h5')[0].remove()
+		}
+		criabotao()
+	}}
+	
+	function remove_h6(){
+		i = 0
+		if (document.querySelectorAll('h6').length > 0) {
+		while (i < document.querySelectorAll('h6').length){
+		document.querySelectorAll('h6')[0].remove()
+		}
+		criabotao()
+	}}
+	
+	function adiciona_h1() {
+		elemento = document.createElement('h1');
+		elemento.textContent = "Texto teste h1";
+		document.querySelector('body').prepend(elemento);
+		if (document.querySelectorAll('h1').length > 0) {
+		botaodiminuir.remove();
+		botaoaumentar.remove();
+		criabotao();}
+		else {
+		criabotao();}
+	}
+	
+		function adiciona_h2() {
+		elemento = document.createElement('h2');
+		elemento.textContent = "Texto teste h2";
+		document.querySelector('body').prepend(elemento);
+		if (document.querySelectorAll('h2').length > 0) {
+		botaodiminuir.remove();
+		botaoaumentar.remove();
+		criabotao();}
+		else {
+		criabotao();}
+	}
+	
+		function adiciona_h3() {
+		elemento = document.createElement('h3');
+		elemento.textContent = "Texto teste h3";
+		document.querySelector('body').prepend(elemento);
+		if (document.querySelectorAll('h3').length > 0) {
+		botaodiminuir.remove();
+		botaoaumentar.remove();
+		criabotao();}
+		else {
+		criabotao();}
+	}
+	
+		function adiciona_h4() {
+		elemento = document.createElement('h4');
+		elemento.textContent = "Texto teste h4";
+		document.querySelector('body').prepend(elemento);
+		if (document.querySelectorAll('h4').length > 0) {
+		botaodiminuir.remove();
+		botaoaumentar.remove();
+		criabotao();}
+		else {
+		criabotao();}
+	}
+	
+		function adiciona_h5() {
+		elemento = document.createElement('h5');
+		elemento.textContent = "Texto teste h5";
+		document.querySelector('body').prepend(elemento);
+		if (document.querySelectorAll('h5').length > 0) {
+		botaodiminuir.remove();
+		botaoaumentar.remove();
+		criabotao();}
+		else {
+		criabotao();}
+	}
+	
+		function adiciona_h6() {
+		elemento = document.createElement('h6');
+		elemento.textContent = "Texto teste h6";
+		document.querySelector('body').prepend(elemento);
+		if (document.querySelectorAll('h6').length > 0) {
+		botaodiminuir.remove();
+		botaoaumentar.remove();
+		criabotao();}
+		else {
+		criabotao();}
+	}
+   </script>
+  </body>
+</html>
