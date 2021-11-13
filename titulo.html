@@ -32,18 +32,18 @@
     <h6>Texto teste h6</h6>
     <h6>Texto teste h6</h6><br>
 	<p>botões de teste</p>
-	<input type="button" value="remover h1" onclick="remove_h1()">
-	<input type="button" value="remover h2" onclick="remove_h2()">
-	<input type="button" value="remover h3" onclick="remove_h3()">
-	<input type="button" value="remover h4" onclick="remove_h4()">
-	<input type="button" value="remover h5" onclick="remove_h5()">
-	<input type="button" value="remover h6" onclick="remove_h6()"> <br>
-	<input type="button" value="adiciona h1" onclick="adiciona_h1()">
-	<input type="button" value="adiciona h2" onclick="adiciona_h2()">
-	<input type="button" value="adiciona h3" onclick="adiciona_h3()">
-	<input type="button" value="adiciona h4" onclick="adiciona_h4()">
-	<input type="button" value="adiciona h5" onclick="adiciona_h5()">
-	<input type="button" value="adiciona h6" onclick="adiciona_h6()">
+	<input type="button" value="remover h1" onclick="remove_hn(1)">
+	<input type="button" value="remover h2" onclick="remove_hn(2)">
+	<input type="button" value="remover h3" onclick="remove_hn(3)">
+	<input type="button" value="remover h4" onclick="remove_hn(4)">
+	<input type="button" value="remover h5" onclick="remove_hn(5)">
+	<input type="button" value="remover h6" onclick="remove_hn(6)"> <br>
+	<input type="button" value="adiciona h1" onclick="adiciona_hn(1)">
+	<input type="button" value="adiciona h2" onclick="adiciona_hn(2)">
+	<input type="button" value="adiciona h3" onclick="adiciona_hn(3)">
+	<input type="button" value="adiciona h4" onclick="adiciona_hn(4)">
+	<input type="button" value="adiciona h5" onclick="adiciona_hn(5)">
+	<input type="button" value="adiciona h6" onclick="adiciona_hn(6)">
 	<script> 
 	function encontrar_h() {
 		h = 1
@@ -91,119 +91,20 @@
 	 }}
 	 
 	
-	function remove_h1(){
-		if (document.querySelectorAll('h1').length > 0) {
-		while (0 < document.querySelectorAll('h1').length){
-		document.querySelectorAll('h1')[0].remove()
+	function remove_hn(x){
+		if (document.querySelectorAll(`h${x}`).length > 0) {
+		while (0 < document.querySelectorAll(`h${x}`).length){
+		document.querySelectorAll(`h${x}`)[0].remove()
 		}
 		criabotao()
 	}}
 	
-	function remove_h2(){
-		if (document.querySelectorAll('h2').length > 0) {
-		while (0 < document.querySelectorAll('h2').length){
-		document.querySelectorAll('h2')[0].remove()
-		}
-		criabotao()
-	}}
 	
-	function remove_h3(){
-		if (document.querySelectorAll('h3').length > 0) {
-		while (document.querySelectorAll('h3').length > 0){
-		document.querySelectorAll('h3')[0].remove()
-		}
-		criabotao()
-	}}
-	
-	function remove_h4(){
-		if (document.querySelectorAll('h4').length > 0) {
-		while (document.querySelectorAll('h4').length > 0){
-		document.querySelectorAll('h4')[0].remove()
-		}
-		criabotao()
-	}}
-	
-	function remove_h5(){
-		if (document.querySelectorAll('h5').length > 0) {
-		while (document.querySelectorAll('h5').length > 0){
-		document.querySelectorAll('h5')[0].remove()
-		}
-		criabotao()
-	}}
-	
-	function remove_h6(){
-		if (document.querySelectorAll('h6').length > 0) {
-		while (document.querySelectorAll('h6').length > 0){
-		document.querySelectorAll('h6')[0].remove()
-		}
-		criabotao()
-	}}
-	
-	function adiciona_h1() {
-		elemento = document.createElement('h1');
-		elemento.textContent = "Texto teste h1";
+	function adiciona_hn(x) {
+		elemento = document.createElement(`h${x}`);
+		elemento.textContent = `Texto teste h${x}`;
 		document.querySelector('body').prepend(elemento);
-		if (document.querySelectorAll('h1').length > 0) {
-		botaodiminuir.remove();
-		botaoaumentar.remove();
-		criabotao();}
-		else {
-		criabotao();}
-	}
-	
-		function adiciona_h2() {
-		elemento = document.createElement('h2');
-		elemento.textContent = "Texto teste h2";
-		document.querySelector('body').prepend(elemento);
-		if (document.querySelectorAll('h2').length > 0) {
-		botaodiminuir.remove();
-		botaoaumentar.remove();
-		criabotao();}
-		else {
-		criabotao();}
-	}
-	
-		function adiciona_h3() {
-		elemento = document.createElement('h3');
-		elemento.textContent = "Texto teste h3";
-		document.querySelector('body').prepend(elemento);
-		if (document.querySelectorAll('h3').length > 0) {
-		botaodiminuir.remove();
-		botaoaumentar.remove();
-		criabotao();}
-		else {
-		criabotao();}
-	}
-	
-		function adiciona_h4() {
-		elemento = document.createElement('h4');
-		elemento.textContent = "Texto teste h4";
-		document.querySelector('body').prepend(elemento);
-		if (document.querySelectorAll('h4').length > 0) {
-		botaodiminuir.remove();
-		botaoaumentar.remove();
-		criabotao();}
-		else {
-		criabotao();}
-	}
-	
-		function adiciona_h5() {
-		elemento = document.createElement('h5');
-		elemento.textContent = "Texto teste h5";
-		document.querySelector('body').prepend(elemento);
-		if (document.querySelectorAll('h5').length > 0) {
-		botaodiminuir.remove();
-		botaoaumentar.remove();
-		criabotao();}
-		else {
-		criabotao();}
-	}
-	
-		function adiciona_h6() {
-		elemento = document.createElement('h6');
-		elemento.textContent = "Texto teste h6";
-		document.querySelector('body').prepend(elemento);
-		if (document.querySelectorAll('h6').length > 0) {
+		if (document.querySelectorAll(`h${x}`).length > 0) {
 		botaodiminuir.remove();
 		botaoaumentar.remove();
 		criabotao();}
