@@ -85,8 +85,8 @@ tr.forEach(item => {
 
 function darnomes() {
 	peças.forEach(peça => {
-	peça.setAttributte('name', '');
-	peça.name = peça.parentNode.id;
+		peça.setAttribute('name', '')
+		peça.name = peça.parentNode.id;
 	})
 }
 
