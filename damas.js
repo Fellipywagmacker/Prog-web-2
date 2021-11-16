@@ -125,7 +125,7 @@ function dragenter(e) {
 	c = parseInt(document.querySelector('.selecionado').name)
 	d = parseInt(this.id)
 	e = this
-	if (movimentosválidos(a,b,c,d,e) == true) {
+	if (movimentosvalidos(a,b,c,d,e) == true) {
 		this.style.backgroundColor = 'blue'
 	}
 	else {
@@ -144,7 +144,7 @@ function drop(){
 	d = parseInt(this.id)
 	e = this
 	
-	if (movimentosválidos(a,b,c,d,e) == true) {
+	if (movimentosvalidos(a,b,c,d,e) == true) {
 		this.style.backgroundColor = 'black'
 		this.append(document.querySelector('.selecionado'))
 		document.querySelector('.selecionado').setAttribute('name', this.id)
@@ -157,7 +157,7 @@ function drop(){
 
 
 
-function movimentosválidos(a,b,c,d,e){
+function movimentosvalidos(a,b,c,d,e){
 	if (peçasvermelhas.indexOf(document.querySelector('.selecionado')) !== -1 )	{
 		if (a == b + 1){
 			if (d == c + 1 || d == c - 1){
