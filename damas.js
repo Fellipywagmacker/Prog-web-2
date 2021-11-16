@@ -42,6 +42,7 @@ function criaPeca(cor) {
     return imagem;
 }
 
+//adcionando eventos às peças
 peças = document.querySelectorAll('img')
 peças.forEach(peça => {
 	peça.setAttribute('draggable', 'true')
@@ -49,6 +50,8 @@ peças.forEach(peça => {
 	peça.addEventListener('dragend', dragend);
 })
 
+
+//separando as peças em duas listas diferentes
 peçaspretas = []
 peçasvermelhas = []
 
@@ -64,6 +67,8 @@ while (aux < 24) {
 	aux += 1
 }
 
+
+//mapeando o tabuleiro em eixos x e y;
 aux = 0
 celulas = document.querySelectorAll('td');
 celulas.forEach(celula => {
@@ -98,6 +103,7 @@ celulas.forEach(celula =>{
 	celulaspretas.push(celula)}
 })
 
+// adcionando os eventos às células pretas;
 celulaspretas.forEach(celulapreta => {
 	celulapreta.addEventListener('dragover', dragover)
 	celulapreta.addEventListener('dragenter', dragenter);
@@ -105,6 +111,8 @@ celulaspretas.forEach(celulapreta => {
 	celulapreta.addEventListener('drop', drop)
 })
 
+
+// definindo as funções
 function dragstart() {
 	this.classList.add('selecionado')
 }
@@ -137,13 +145,13 @@ function dragleave() {
 }
 
 function drop(){
-	a = parseInt(document.querySelector('.selecionado').parentNode.parentNode.id)
-	b = parseInt(this.parentNode.id)
-	c = parseInt(document.querySelector('.selecionado').name)
-	d = parseInt(this.id)
-	e = this
+	posy_inicial = parseInt(document.querySelector('.selecionado').parentNode.parentNode.id)
+	posy_final = parseInt(this.parentNode.id)
+	posx_inicial = parseInt(document.querySelector('.selecionado').name)
+	posx_final = parseInt(this.id)
+	destino_peça = this
 	
-	if (movimentosvalidos(a,b,c,d,e) == true) {
+	if (movimentosvalidos(posy_inicial,posy_final,posx_inicial,posx_final,destino_peça) == true) {
 		this.style.backgroundColor = 'black'
 		this.append(document.querySelector('.selecionado'))
 		document.querySelector('.selecionado').setAttribute('name', this.id)
@@ -156,11 +164,12 @@ function drop(){
 
 
 
-function movimentosvalidos(a,b,c,d,e){
+function movimentosvalidos(posy_inicial,posy_final,posx_inicial,posx_final,destino_peça){
+	
 	if (peçasvermelhas.indexOf(document.querySelector('.selecionado')) !== -1 )	{
-		if (a == b + 1){
-			if (d == c + 1 || d == c - 1){
-				if (e.hasChildNodes() == false){
+		if (posy_inicial == posy_final + 1){
+			if (posx_final == posx_inicial + 1 || posx_final == posx_inicial - 1){
+				if (destino_peça.hasChildNodes() == false){
 					return true
 				}
 				else {
@@ -170,9 +179,9 @@ function movimentosvalidos(a,b,c,d,e){
 		}
 	}
 	else{
-		if (a == b - 1){
-			if (d == c + 1 || d == c - 1){
-				if (e.hasChildNodes() == false){
+		if (posy_inicial == posy_final - 1){
+			if (posx_final == posx_inicial + 1 || posx_final == posx_inicial - 1){
+				if (destino_peça.hasChildNodes() == false){
 					return true
 				}
 				else {
