@@ -84,11 +84,10 @@ tr.forEach(item => {
 })
 
 function darnomes() {
-	peçasvermelhas.forEach(peças => {peças.setAttribute('name', '');
-                                   peças.name = peças.parentNode.id;})
-	
-	peçaspretas.forEach(peça => {peça.setAttribute('name', '');
-                               peça.name = peça.parentNode.id;})
+	peças.forEach(peça => {
+	peça.setAttributte('name', '');
+	peça.name = peça.parentNode.id;
+	})
 }
 
 
