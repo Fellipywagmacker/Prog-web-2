@@ -1,0 +1,131 @@
+<html>
+<head>
+<title>teste</title>
+<style type="text/css">
+	body {
+		background-image: url(eclipse.jpg);
+		background-size: cover;
+	}
+	
+	#faltam {
+		font-weight: bold;
+		font-size: 84px;
+		color: white;
+	}
+	
+	#dia {
+		position: absolute;
+		left: 350px;
+		top: 210px;
+		color: white;
+		font-size: 46px;
+	}
+	
+	#hora {
+		position: absolute;
+		left: 500px;
+		top: 210px;
+		color: white;
+		font-size: 46px;
+	}
+	
+	#minuto {
+		position: absolute;
+		left: 680px;
+		top: 210px;
+		color: white;
+		font-size: 46px;
+	}
+
+	#segundo {
+		position: absolute;
+		left: 900px;
+		top: 210px;
+		color: white;
+		font-size: 46px;
+	}
+	
+	#dia_encontro {
+		position: absolute;
+		left: 380px;
+		top: 150px;
+		font-size: 32px;
+		color: white;
+		font-size: 58px;
+	}
+	
+	#hora_encontro {
+		position: absolute;
+		left: 535px;
+		top: 150px;
+		font-size: 58px;
+		color: white;
+	
+	}
+	
+	#minuto_encontro {
+		position: absolute;
+		left: 720px;
+		top: 150px;
+		font-size: 58px;
+		color: white;
+	
+	}
+	
+	#segundo_encontro {
+		position: absolute;
+		left: 960px;
+		top: 150px;
+		font-size: 58px;
+		color: white;
+	
+	}
+	
+	#texto_final {
+		color: white;
+		font-size: 72px;
+		font-style: italic;
+		position: absolute;
+		top: 420px;
+		left: 250px;
+	}
+</style>
+</head>
+<body>
+<center><div id='faltam'>Faltam</div></center>
+<div id='dia_encontro'></div>
+<div id='dia'>dia(s)</div>
+<div id='hora_encontro'></div>
+<div id='hora'>hora(s)</div>
+<div id='minuto_encontro'></div>
+<div id='minuto'>minuto(s)</div>
+<div id='segundo_encontro'></div>
+<div id='segundo'>segundo(s)</div>
+<div id='texto_final'>Até o nosso próximo eclipse</div>
+<script type="text/javascript">
+	const contagem = () => {
+		const encontro = new Date('Nov 20, 2021 00:00:00').getTime();
+		const hoje = new Date().getTime();
+		const diferença = encontro - hoje
+	
+		const segundo = 1000
+		const minuto = segundo * 60
+		const hora = minuto * 60
+		const dia = hora * 24
+		
+		const dia_resultado = Math.floor(diferença / dia)
+		const hora_resultado = Math.floor((diferença % dia) / hora)
+		const minuto_resultado = Math.floor((diferença % hora) / minuto)
+		const segundo_resultado = Math.floor((diferença % minuto) / segundo)
+		
+		dia_encontro.textContent = dia_resultado
+		hora_encontro.textContent = hora_resultado
+		minuto_encontro.textContent = minuto_resultado
+		segundo_encontro.textContent = segundo_resultado
+	}
+
+
+setInterval(contagem, 1000)
+</script>
+</body>
+</html>
