@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>nosso contador</title>
+<title>teste</title>
 <style type="text/css">
 	body {
 		background-image: url(eclipse.jpg);
@@ -11,6 +11,7 @@
 		font-weight: bold;
 		font-size: 84px;
 		color: white;
+		display: block;
 	}
 	
 	#dia {
@@ -19,6 +20,7 @@
 		top: 210px;
 		color: white;
 		font-size: 46px;
+		display: block;
 	}
 	
 	#hora {
@@ -27,6 +29,7 @@
 		top: 210px;
 		color: white;
 		font-size: 46px;
+		display: block;
 	}
 	
 	#minuto {
@@ -35,6 +38,7 @@
 		top: 210px;
 		color: white;
 		font-size: 46px;
+		display: block;
 	}
 
 	#segundo {
@@ -43,6 +47,7 @@
 		top: 210px;
 		color: white;
 		font-size: 46px;
+		display: block;
 	}
 	
 	#dia_encontro {
@@ -52,6 +57,7 @@
 		font-size: 32px;
 		color: white;
 		font-size: 58px;
+		display: block;
 	}
 	
 	#hora_encontro {
@@ -60,6 +66,7 @@
 		top: 150px;
 		font-size: 58px;
 		color: white;
+		display: block;
 	
 	}
 	
@@ -69,6 +76,7 @@
 		top: 150px;
 		font-size: 58px;
 		color: white;
+		display: block;
 	
 	}
 	
@@ -78,6 +86,7 @@
 		top: 150px;
 		font-size: 58px;
 		color: white;
+		display: block;
 	
 	}
 	
@@ -88,6 +97,17 @@
 		position: absolute;
 		top: 420px;
 		left: 250px;
+		display: block;
+	}
+	
+	#e_hoje {
+		color: white;
+		font-size: 150px;
+		font-weight: bold;
+		position: absolute;
+		display: none;
+		top: 220px;
+		left: 375px;
 	}
 </style>
 </head>
@@ -102,9 +122,10 @@
 <div id='segundo_encontro'></div>
 <div id='segundo'>segundo(s)</div>
 <div id='texto_final'>Até o nosso próximo eclipse</div>
+<div id='e_hoje'>É HOJE!</div>
 <script type="text/javascript">
 	const contagem = () => {
-		const encontro = new Date('Nov 20, 2021 00:00:00').getTime();
+		const encontro = new Date('Nov 19, 2021 15:22:00').getTime();
 		const hoje = new Date().getTime();
 		const diferença = encontro - hoje
 	
@@ -122,6 +143,13 @@
 		hora_encontro.textContent = hora_resultado
 		minuto_encontro.textContent = minuto_resultado
 		segundo_encontro.textContent = segundo_resultado
+		
+		if (diferença < 1000){
+			document.querySelectorAll('div').forEach(item => {
+				item.style.display = 'none'
+			})
+			document.getElementById('e_hoje').style.display = 'block'
+		}
 	}
 
 
