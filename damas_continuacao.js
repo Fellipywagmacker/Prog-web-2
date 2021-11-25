@@ -145,6 +145,7 @@ function dragleave() {
 }
 
 function drop(){
+	indice = peçasvermelhas.indexOf(document.querySelector('.selecionado'))
 	posy_inicial = parseInt(document.querySelector('.selecionado').parentNode.parentNode.id)
 	posy_final = parseInt(this.parentNode.id)
 	posx_inicial = parseInt(document.querySelector('.selecionado').name)
@@ -181,7 +182,7 @@ function drop(){
 }
 
 
-
+/*nova função: analisa se a casa que está sendo pulada possui uma peça e verifica se a peça que está caprturando não é da mesma cor que a peça que está sendo capturada*/
 function comepeça(posy_final,posx_final,posx_inicial,indice){
 	if (indice !== -1){
 	if (posx_final < posx_inicial) {
