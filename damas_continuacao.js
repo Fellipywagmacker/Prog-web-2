@@ -182,11 +182,12 @@ function drop(){
 
 
 
-function comepeça(posy_final,posx_final,posx_inicial){
+function comepeça(posy_final,posx_final,posx_inicial,indice){
 	if (indice !== -1){
 	if (posx_final < posx_inicial) {
 		if (tr[posy_final+1].childNodes[posx_final+1].hasChildNodes() == true){
-			return true
+			if (peçasvermelhas.indexOf(tr[posy_final+1].childNodes[posx_final+1].childNodes[0]) == -1){
+			return true}
 		}
 		else {
 			return false
@@ -194,7 +195,8 @@ function comepeça(posy_final,posx_final,posx_inicial){
 	}
 	else {
 		if (tr[posy_final+1].childNodes[posx_final-1].hasChildNodes() == true){
-			return true
+			if (peçasvermelhas.indexOf(tr[posy_final+1].childNodes[posx_final-1].childNodes[0]) == -1){
+			return true}
 		}
 		else {
 			return false
@@ -204,7 +206,8 @@ function comepeça(posy_final,posx_final,posx_inicial){
 	else {
 		if (posx_final < posx_inicial){
 		if (tr[posy_final-1].childNodes[posx_final+1].hasChildNodes() == true){
-			return true
+			if (peçaspretas.indexOf(tr[posy_final-1].childNodes[posx_final+1].childNodes[0]) == -1){
+			return true}
 		}
 		else {
 			return false
@@ -212,7 +215,8 @@ function comepeça(posy_final,posx_final,posx_inicial){
 	}
 		else{
 			if (tr[posy_final-1].childNodes[posx_final-1].hasChildNodes() == true){
-			return true
+			if (peçaspretas.indexOf(tr[posy_final-1].childNodes[posx_final-1].childNodes[0]) == -1){
+			return true}
 		}
 		else {
 			return false
@@ -238,9 +242,10 @@ function movimentosvalidos(posy_inicial,posy_final,posx_inicial,posx_final,desti
 			}
 		}
 		else if (posy_inicial == posy_final +2){
-			if(posx_final == posx_inicial + 2 || posx_final == posx_inicial -2 && destino_peça.hasChildNodes() == false){
+			if(posx_final == posx_inicial + 2 || posx_final == posx_inicial -2){
 					if(comepeça(posy_final,posx_final,posx_inicial,indice) == true){
-					return true
+						if (destino_peça.hasChildNodes() == false){
+						return true}
 					}
 				}
 		}
@@ -261,9 +266,10 @@ function movimentosvalidos(posy_inicial,posy_final,posx_inicial,posx_final,desti
 			}
 		}
 		else  if (posy_inicial == posy_final -2){
-			if(posx_final == posx_inicial + 2 || posx_final == posx_inicial -2 && destino_peça.hasChildNodes() == false){
+			if(posx_final == posx_inicial + 2 || posx_final == posx_inicial -2){
 					if(comepeça(posy_final,posx_final,posx_inicial,indice) == true){
-					return true
+						if(destino_peça.hasChildNodes() == false){
+						return true}
 					}
 				}
 			else{
